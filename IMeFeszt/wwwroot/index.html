@@ -137,7 +137,7 @@
           meg nekünk!
         </p>
         <h5>Köszönjük, az IMeFeszt csapata!</h5>
-        <form class="form" action="submit_donation.php" method="post">
+        <form class="form" id="donationForm">
           <label for="name">Név:</label>
           <input type="text" id="name" name="name" required />
 
@@ -164,5 +164,35 @@
     <footer>
       <p>"Ne menjünk el egymás mellett!" &copy; 2024 IMeFeszt</p>
     </footer>
+
+    <script>
+      document.getElementById('donationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var konstrukt = document.getElementById('konstrukt').value;
+        var amount = document.getElementById('amount').value;
+
+        var url = `/donate/${encodeURIComponent(name)}/${encodeURIComponent(email)}/${encodeURIComponent(konstrukt)}/${encodeURIComponent(amount)}`;
+
+        fetch(url, {
+          method: 'PUT'
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Hiba történt az adomány küldése során.');
+            }
+          })
+          .then(data => {
+            alert('Adomány sikeresen elküldve!');
+          })
+          .catch(error => {
+            console.error('Hiba történt:', error);
+            alert('Hiba történt az adomány küldése során.');
+          });
+      });
+    </script>
+  
   </body>
 </html>

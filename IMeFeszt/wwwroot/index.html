@@ -68,7 +68,7 @@
           segítség nekünk, de persze minden hatalmas támogatás is hatalmas
           támogatás nekünk!
         </p>
-        <h2 class="money">Eddig összegyűjtött pénz: 0 Forint</h2>
+        <h2 class="money">Eddig összegyűjtött pénz: <span id="moneyAmount">0</span> Forint</h2>
       </section>
     </div>
     <section id="tips">
@@ -183,16 +183,33 @@
             if (!response.ok) {
               throw new Error('Hiba történt az adomány küldése során.');
             }
+            return response.json();
           })
           .then(data => {
             alert('Adomány sikeresen elküldve!');
+            const moneyAmountElement = document.getElementById('moneyAmount');
+            moneyAmountElement.textContent = data;
           })
           .catch(error => {
             console.error('Hiba történt:', error);
             alert('Hiba történt az adomány küldése során.');
           });
       });
+
+      fetch('/donate')
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Hiba történt a lekérdezés során.');
+                }
+                return response.json();
+              })
+              .then(data => {
+                const moneyAmountElement = document.getElementById('moneyAmount');
+                moneyAmountElement.textContent = data;
+              })
+              .catch(error => {
+                console.error('Hiba történt:', error);
+              });
     </script>
-  
   </body>
 </html>

@@ -4,10 +4,6 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 
-# OS junk files
-[Tt]humbs.db
-*.DS_Store
-
 # Visual Studio files
 .vs/
 *.[Oo]bj
@@ -48,33 +44,3 @@ ipch/
 _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
-
-# Office Temp Files
-~$*
-
-bin/obj/*
-bin/[rR]elease/x86/*
-bin/[rR]elease/x64/*
-bin/[dD]ebug/x86/*
-bin/[dD]ebug/x64/*
-installer/data.zip
-!deliver/.readme
-deliver/*
-/src/UpgradeLog.htm
-/html
-/inputs
-/latex
-/xml
-/hbm
-/lib/Roslyn/*
-!/lib/Roslyn/Microsoft.CodeAnalysis.dll
-!/lib/Roslyn/Microsoft.CodeAnalysis.CSharp.dll
-!/lib/Roslyn/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-!/lib/Roslyn/Microsoft.CodeAnalysis.Workspaces.dll
-!/lib/Roslyn/Microsoft.CodeAnalysis.Workspaces.Desktop.dll
-!/lib/Roslyn/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-!/lib/Roslyn/System.Collections.Immutable.dll
-*.jfm
-*.dbmdl
-
-node_modules
